@@ -1,13 +1,13 @@
 const numbr = (a)=>{
     if(a==0)
-        console.log(`zero`) ;
+        return "zero" ;
     else if(a==1)
-        console.log(`one`) ;
+        return "one" ;
     else if(a==2)
-        console.log(`two`) ;
+        return "two" ;
     else if(a==3)
-        console.log(`three`) ;
-    else if(a==4)
+        return "three" ;
+        else if(a==4)
         console.log(`four`)
     else if(a==5)
         console.log(`five`) ;
@@ -21,4 +21,35 @@ const numbr = (a)=>{
         console.log(`nine`) ;
 
 }
-numbr(0) ;
+numbr() ;
+
+//create another function that takes a number and show in words with the help of numbr function that you have created
+
+const rollnum= "0123" ;
+const digits = string(rollnum).split("") ;
+let inwords = " " ;
+digitsforEach((d)=>{
+    inwords = inwords+" "+numbr(Number(d)) ;
+});
+console.log(inwords) ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
