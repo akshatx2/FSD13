@@ -10,7 +10,8 @@
 
 - Directory management
   - mkdir()
-  - rmdir()
+  - rmdir() - depricated
+  - rm()
   - readdir()
 
 - Metadata / information
