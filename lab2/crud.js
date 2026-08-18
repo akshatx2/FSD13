@@ -3,14 +3,19 @@ import{writeFile , readFile} from "fs/promises" ;
 import { stdin, stdout } from "process";
 
 const FILE = "products.json" ;
-const saveCart=async (cart)=>{
+const savecart=async (cart)=>{
 await writeFile(FILE,JSON.stringify(cart,null,2)) ;
 
 } ;
-const getCart= async ()=>{
+const getcart= async ()=>{
     const data = await readFile(FILE , "utf-8") ;
     return JSON.parse(data) ;
 
+}
+const addtocart= async (item)=>{
+     const products = await getcart() ;
+     products.push(item) ;
+     await savecart(products) ;
 }
 
 const main = async () => {
