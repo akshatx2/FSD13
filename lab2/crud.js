@@ -2,7 +2,7 @@ import readline from "readline/promises";
 import{writeFile , readFile} from "fs/promises" ;
 import { stdin, stdout } from "process";
 
-const FILE = "products.json" ;
+const FILE = "./lab2/products.json";
 const savecart=async (cart)=>{
 await writeFile(FILE,JSON.stringify(cart,null,2)) ;
 
@@ -33,6 +33,7 @@ const main = async () => {
 
         switch (Number(choice)) {
             case 1:
+                await addtocart({id:101 , name :"Mobile " , price : 1500 , qty:3}) ;
                 console.log("add to cart");
                 break;
             case 2:
