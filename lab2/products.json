@@ -3,12 +3,18 @@
     "id": 1,
     "name": "HPlaptop",
     "price": 120000,
-    "qty": 2
+    "qty": 3
   },
   {
     "id": 2,
     "name": "samsung s26",
     "price": 96000,
+    "qty": 1
+  },
+  {
+    "id": 1,
+    "name": "HPlaptop",
+    "price": 120000,
     "qty": 1
   }
 ]
