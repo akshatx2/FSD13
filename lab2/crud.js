@@ -1,21 +1,30 @@
 import readline from "readline/promises";
-import{writeFile , readFile} from "fs/promises" ;
+import { writeFile, readFile } from "fs/promises";
 import { stdin, stdout } from "process";
 
 const FILE = "./lab2/products.json";
-const savecart=async (cart)=>{
-await writeFile(FILE,JSON.stringify(cart,null,2)) ;
+const savecart = async (cart) => {
+    await writeFile(FILE, JSON.stringify(cart, null, 2));
 
-} ;
-const getcart= async ()=>{
-    const data = await readFile(FILE , "utf-8") ;
-    return JSON.parse(data) ;
+};
+const getcart = async () => {
+    const data = await readFile(FILE, "utf-8");
+    return JSON.parse(data);
 
 }
-const addtocart= async (item)=>{
-     const products = await getcart() ;
-     products.push(item) ;
-     await savecart(products) ;
+const addtocart = async (item) => {
+    const products = await getcart();
+    products.push(item);
+    await savecart(products);
+}
+const showcart = () => {
+    console.log("show cart");
+}
+const updatecart = () => {
+    console.log("cart updated");
+}
+const deletefromcart = () => {
+    console.log("deleted from cart");
 }
 
 const main = async () => {
@@ -33,27 +42,39 @@ const main = async () => {
 
         switch (Number(choice)) {
             case 1:
-                await addtocart({id:101 , name :"Mobile " , price : 1500 , qty:3}) ;
-                console.log("add to cart");
+                let data = await cin.question('Enter id , name ,price , qty :');
+                let p = data.split(",");
+                
+                let q=p.map((item)=>item.trim()) ;
+                let[id, name, price, qty] = q;
+                console.log(id, name, price, qty);
+                const product={
+                    id: Number(id) ,
+                    name,
+                    price: Number(price) ,
+                    qty: Number(qty) ,
+
+                } ;
+                //console.table(product) ;
                 break;
             case 2:
-                console.log("show cart items");
+                showcart();
                 break;
             case 3:
-                console.log("remove items");
+                deletefromcart();
                 break;
             case 4:
-                console.log("update quantity");
+                updatecart();
                 break;
             case 5:
-                console.log("see you later...😄");
+
                 break;
             default:
                 console.log("Invalid choice! try again 💥")
 
         }
-        console.log("type of",typeof(choice))
-    }while (choice !== "5");
+        console.log("type of", typeof (choice))
+    } while (choice !== "5");
     cin.close();
 
 
