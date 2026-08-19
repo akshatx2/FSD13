@@ -56,6 +56,7 @@ const main = async () => {
 
                 } ;
                 //console.table(product) ;
+                await addtocart(product) ;
                 break;
             case 2:
                 showcart();
